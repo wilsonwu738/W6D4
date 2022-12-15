@@ -13,15 +13,19 @@ Rails.application.routes.draw do
 #           PATCH  /users/:id(.:format)      users#update
 #           PUT    /users/:id(.:format)      users#update
 #           DELETE /users/:id(.:format)      users#destroy
-  # resources :users
+  resources :users, only: [:index, :create, :show, :update, :destroy]
+  resources :artworks, only: [:index, :create, :show, :update, :destroy]
+  resources :artwork_shares, only: [:index, :create, :show, :update, :destroy]
 
-  get 'users/new', to: 'users#new', as: 'new_user'
-  get '/users', to: 'users#index', as: 'users'
-  post 'users', to: 'users#create'
-  get '/users/:id/edit', to: 'users#edit', as: 'edit_user'
-  get '/users/:id', to: 'users#show', as: 'user'
-  patch '/users/:id', to: 'users#update'
-  put '/users/:id', to: 'users#update'
-  delete '/users/:id', to: 'users#destroy'
+
+
+  # get 'users/new', to: 'users#new', as: 'new_user'
+  # get '/users', to: 'users#index', as: 'users'
+  # post 'users', to: 'users#create'
+  # get '/users/:id/edit', to: 'users#edit', as: 'edit_user'
+  # get '/users/:id', to: 'users#show', as: 'user'
+  # patch '/users/:id', to: 'users#update'
+  # put '/users/:id', to: 'users#update'
+  # delete '/users/:id', to: 'users#destroy'
 
 end
